@@ -3,7 +3,7 @@ using UnityEngine;
 public class LavaSpawner : MonoBehaviour
 {
     [SerializeField] private GameObject lavaPrefab;
-    private Transform player;
+    [SerializeField] private Transform player;
     [SerializeField] private float playerDistancePoint;
 
     private void Start()
@@ -12,14 +12,19 @@ public class LavaSpawner : MonoBehaviour
     }
 
 
-    private void Update()
+    private void OnTriggerEnter(Collider other)
     {
-        if (player.position.z >= transform.position.z + playerDistancePoint)
+        if (other.CompareTag("Player"))
         {
-            
+            SpawnLavaPlane();
         }
     }
 
+    private void SpawnLavaPlane()
+    {
+        Vector3 nextLavaPos = new Vector3(transform.position.x, transform.position.y, transform.position.z + transform.localScale.x);
+        Instantiate(lavaPrefab, nextLavaPos, Quaternion.identity);
+    }
     
 
 }
