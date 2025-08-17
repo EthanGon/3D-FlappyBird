@@ -16,8 +16,4 @@ public class PlayerManager : MonoBehaviour
         return this.transform.position;
     }
 
-    public void SetSpeed(float speed)
-    {
-        playerMovement.ChangeSpeed(speed);
-    }
 }

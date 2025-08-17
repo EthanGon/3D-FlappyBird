@@ -5,10 +5,10 @@ public class PipeSpawner : MonoBehaviour
 {
     public GameObject[] pipes;
     [SerializeField] private float spawnTime = 3.0f;
-    [SerializeField] private float timer = 0;
     [SerializeField] private float pipeSpeed = 50.0f;
     [SerializeField] private float maxY = 12.0f;
     [SerializeField] private float minY = -8.0f;
+    private float timer = 0;
 
     private void Update()
     {

@@ -6,7 +6,6 @@ public class Movement : MonoBehaviour
 {
     private Rigidbody rb;
     [SerializeField] private float jumpForce = 5.0f;
-    [SerializeField] private float speed = 5.0f;
     [SerializeField] private float sideSpeed = 5.0f;
 
     private void Awake()
@@ -22,15 +21,10 @@ public class Movement : MonoBehaviour
         }
 
         float dirX = Input.GetAxis("Horizontal");
-        
-
-        rb.linearVelocity = new Vector3(dirX * sideSpeed, rb.linearVelocity.y, speed);
+        rb.linearVelocity = new Vector3(dirX * sideSpeed, rb.linearVelocity.y, rb.linearVelocity.z);
     }
 
-    public void ChangeSpeed(float speed)
-    {
-        this.speed = speed;
-    }
+    
     
 
 }
