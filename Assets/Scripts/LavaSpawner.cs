@@ -24,6 +24,7 @@ public class LavaSpawner : MonoBehaviour
     {
         Vector3 nextLavaPos = new Vector3(transform.position.x, transform.position.y, transform.position.z + transform.localScale.z);
         Instantiate(lavaPrefab, nextLavaPos, Quaternion.identity);
+
     }
     
 
