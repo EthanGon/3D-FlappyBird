@@ -140,8 +140,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 3.7, y: 13.939106, z: 3.7}
-  m_Center: {x: 0, y: -5.9948654, z: 0}
+  m_Size: {x: 3.7, y: 38.969517, z: 3.7}
+  m_Center: {x: 0, y: -18.510069, z: 0}
 --- !u!1 &2659413430573127243
 GameObject:
   m_ObjectHideFlags: 0
@@ -500,7 +500,7 @@ GameObject:
   - component: {fileID: -5531434381349728910}
   m_Layer: 0
   m_Name: Pipe
-  m_TagString: Untagged
+  m_TagString: Pipe
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -637,8 +637,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 3.7, y: 13.939106, z: 3.7}
-  m_Center: {x: 0, y: -5.9948654, z: 0}
+  m_Size: {x: 3.7, y: 43.31336, z: 3.7}
+  m_Center: {x: 0, y: -20.68199, z: 0}
 --- !u!1 &8677016327446958990
 GameObject:
   m_ObjectHideFlags: 0

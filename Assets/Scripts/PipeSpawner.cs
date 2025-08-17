@@ -6,8 +6,11 @@ public class PipeSpawner : MonoBehaviour
     public GameObject[] pipes;
     [SerializeField] private float spawnTime = 3.0f;
     [SerializeField] private float timer = 0;
-   
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    [SerializeField] private float pipeSpeed = 50.0f;
+    [SerializeField] private float maxY = 12.0f;
+    [SerializeField] private float minY = -8.0f;
+
+
     void Start()
     {
         
@@ -31,7 +34,12 @@ public class PipeSpawner : MonoBehaviour
     {
         GameObject pipe = pipes[Random.Range(0, pipes.Length)];
 
-        Instantiate(pipe, transform.position, Quaternion.identity);
+        float randomYPos = Random.Range(maxY, minY);
+        Vector3 pipeVector = new Vector3(transform.position.x, randomYPos, transform.position.z);
+
+        GameObject newPipe = Instantiate(pipe, pipeVector, Quaternion.identity);
+        newPipe.GetComponent<Pipe>().SetPipeSpeed(pipeSpeed);
+       
        
         Debug.Log(transform.position);
     }
