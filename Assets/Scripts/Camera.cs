@@ -5,9 +5,7 @@ public class Camera : MonoBehaviour
     public Transform player;
     [SerializeField] private float camZOffset = 5.0f;
     [SerializeField] private float camYOffset = 5.0f;
-    [SerializeField] private float camXOffset = 5.0f;
-
-
+   
     [SerializeField] private float camXMin = 2.0f;
     [SerializeField] private float camXMax = 2.0f;
 
