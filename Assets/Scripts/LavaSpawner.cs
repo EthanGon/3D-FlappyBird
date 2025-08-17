@@ -14,7 +14,10 @@ public class LavaSpawner : MonoBehaviour
 
     private void Update()
     {
-        if (player.position.z >= transform.position.z + playerDistancePoint) ;
+        if (player.position.z >= transform.position.z + playerDistancePoint)
+        {
+            
+        }
     }
 
     
