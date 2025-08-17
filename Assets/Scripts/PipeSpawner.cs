@@ -10,12 +10,6 @@ public class PipeSpawner : MonoBehaviour
     [SerializeField] private float maxY = 12.0f;
     [SerializeField] private float minY = -8.0f;
 
-
-    void Start()
-    {
-        
-    }
-
     private void Update()
     {
         if (timer <= spawnTime)
@@ -24,7 +18,6 @@ public class PipeSpawner : MonoBehaviour
         }
         else
         {
-            
             SpawnPipe();
             timer = 0;
         }

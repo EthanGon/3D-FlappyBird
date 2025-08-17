@@ -14,6 +14,12 @@ public class Pipe : MonoBehaviour
     private void Update()
     {
         rb.linearVelocity = new Vector3 (rb.linearVelocity.x, rb.linearVelocity.y, -moveSpeed);
+
+        if (transform.position.z <= -25)
+        {
+            Destroy(this.gameObject);
+            Debug.Log("Pipe Destroyed");
+        }
     }
 
     private void OnTriggerEnter(Collider other)
