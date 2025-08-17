@@ -21,6 +21,7 @@ public class GameManager : MonoBehaviour
     public void AddScore(int amount)
     {
         playerScore++;
+        scoreText.text = playerScore.ToString();
         Debug.Log("Scored a point!");
     }
 
@@ -28,4 +29,5 @@ public class GameManager : MonoBehaviour
     {
         return playerScore;
     }
+
 }

@@ -5,10 +5,17 @@ public class PipeSpawner : MonoBehaviour
 {
     public GameObject[] pipes;
     [SerializeField] private float spawnTime = 3.0f;
+    private float minSpawnTime = 3.0f;
+    private float maxSpawnTime = 5.0f;
     [SerializeField] private float pipeSpeed = 50.0f;
     [SerializeField] private float maxY = 12.0f;
     [SerializeField] private float minY = -8.0f;
     private float timer = 0;
+
+    private void Start()
+    {
+        spawnTime = Random.Range(minSpawnTime, maxSpawnTime);
+    }
 
     private void Update()
     {
@@ -18,6 +25,7 @@ public class PipeSpawner : MonoBehaviour
         }
         else
         {
+            spawnTime = Random.Range(minSpawnTime, maxSpawnTime);
             SpawnPipe();
             timer = 0;
         }
