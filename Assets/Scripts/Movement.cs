@@ -5,6 +5,7 @@ using UnityEngine.InputSystem;
 public class Movement : MonoBehaviour
 {
     private Rigidbody rb;
+    private bool canMove;
     [SerializeField] private float jumpForce = 5.0f;
     [SerializeField] private float sideSpeed = 5.0f;
 
@@ -13,15 +14,37 @@ public class Movement : MonoBehaviour
         rb = GetComponent<Rigidbody>();
     }
 
+    private void Start()
+    {
+        canMove = false;
+    }
+
     private void Update()
     {
-        if (Input.GetKey(KeyCode.Space))
+        if (canMove)
         {
-            rb.linearVelocity = new Vector3(rb.linearVelocity.x, jumpForce, rb.linearVelocity.z);
+            if (Input.GetKey(KeyCode.Space))
+            {
+                rb.linearVelocity = new Vector3(rb.linearVelocity.x, jumpForce, rb.linearVelocity.z);
+            }
+
+            float dirX = Input.GetAxis("Horizontal");
+            rb.linearVelocity = new Vector3(dirX * sideSpeed, rb.linearVelocity.y, rb.linearVelocity.z);
+        }
+        else
+        {
+            if (Input.GetKey(KeyCode.Space))
+            {
+                PipeSpawner.GetPipeSpawner().SetActiveState(true);
+                canMove = true;
+            }
         }
 
-        float dirX = Input.GetAxis("Horizontal");
-        rb.linearVelocity = new Vector3(dirX * sideSpeed, rb.linearVelocity.y, rb.linearVelocity.z);
+    }
+
+    public void SetCanMove(bool state)
+    {
+        canMove = state;
     }
 
     

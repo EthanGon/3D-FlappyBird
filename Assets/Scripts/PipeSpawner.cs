@@ -4,30 +4,39 @@ using UnityEngine;
 public class PipeSpawner : MonoBehaviour
 {
     public GameObject[] pipes;
-    [SerializeField] private float spawnTime = 3.0f;
+    private static PipeSpawner instance;
+    private float timer = 0;
     private float minSpawnTime = 3.0f;
     private float maxSpawnTime = 5.0f;
+    private bool allowSpawning;
+    [SerializeField] private float spawnTime = 3.0f;
     [SerializeField] private float pipeSpeed = 50.0f;
     [SerializeField] private float maxY = 12.0f;
     [SerializeField] private float minY = -8.0f;
-    private float timer = 0;
+    
 
     private void Start()
     {
         spawnTime = Random.Range(minSpawnTime, maxSpawnTime);
+        allowSpawning = false;
+        instance = this;
     }
 
     private void Update()
     {
-        if (timer <= spawnTime)
+        if (allowSpawning) 
         {
-            timer += Time.deltaTime;
-        }
-        else
-        {
-            spawnTime = Random.Range(minSpawnTime, maxSpawnTime);
-            SpawnPipe();
-            timer = 0;
+            if (timer <= spawnTime)
+            {
+                timer += Time.deltaTime;
+            }
+            else
+            {
+                spawnTime = Random.Range(minSpawnTime, maxSpawnTime);
+                SpawnPipe();
+                timer = 0;
+            }
+
         }
     }
 
@@ -43,6 +52,16 @@ public class PipeSpawner : MonoBehaviour
        
        
         Debug.Log(transform.position);
+    }
+
+    public static PipeSpawner GetPipeSpawner()
+    {
+        return instance;
+    }
+
+    public void SetActiveState(bool state)
+    {
+        allowSpawning = state;
     }
 
 }

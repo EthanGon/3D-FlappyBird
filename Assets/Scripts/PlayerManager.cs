@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class PlayerManager : MonoBehaviour
 {
-    private PlayerManager playerInstance;
+    private static PlayerManager playerInstance;
     private Movement playerMovement;
 
     private void Start()
@@ -11,9 +11,19 @@ public class PlayerManager : MonoBehaviour
         playerMovement = GetComponent<Movement>();
     }
 
+    public static PlayerManager GetInstance()
+    {
+        return playerInstance;
+    }
+
     public Vector3 GetPos()
     {
         return this.transform.position;
+    }
+
+    public void SetPlayerMoveState(bool state)
+    {
+        playerMovement.SetCanMove(state);
     }
 
 }

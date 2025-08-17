@@ -5,6 +5,7 @@ public class GameManager : MonoBehaviour
 {
     private static GameManager instance;
     [SerializeField] private TextMeshProUGUI scoreText;
+    [SerializeField] private GameObject startGameScreen;
     private int playerScore = 0;
 
     private void Start()
@@ -29,5 +30,14 @@ public class GameManager : MonoBehaviour
     {
         return playerScore;
     }
+
+    public void StartGame()
+    {
+        startGameScreen.SetActive(false);
+        PlayerManager.GetInstance().SetPlayerMoveState(true);
+        PipeSpawner.GetPipeSpawner().SetActiveState(true); 
+    }
+
+   
 
 }
