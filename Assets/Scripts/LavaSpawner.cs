@@ -22,7 +22,7 @@ public class LavaSpawner : MonoBehaviour
 
     private void SpawnLavaPlane()
     {
-        Vector3 nextLavaPos = new Vector3(transform.position.x, transform.position.y, transform.position.z + transform.localScale.x);
+        Vector3 nextLavaPos = new Vector3(transform.position.x, transform.position.y, transform.position.z + transform.localScale.z);
         Instantiate(lavaPrefab, nextLavaPos, Quaternion.identity);
     }
     
