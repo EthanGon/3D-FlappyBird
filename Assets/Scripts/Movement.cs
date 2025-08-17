@@ -5,6 +5,7 @@ public class Movement : MonoBehaviour
 {
     private Rigidbody rb;
     [SerializeField] private float jumpForce = 5.0f;
+    [SerializeField] private float speed = 5.0f;
 
     private void Awake()
     {
@@ -17,6 +18,11 @@ public class Movement : MonoBehaviour
         {
             rb.linearVelocity = new Vector3(rb.linearVelocity.x, jumpForce, rb.linearVelocity.z);
         }
+    }
+
+    public void ChangeSpeed(float speed)
+    {
+        this.speed = speed;
     }
 
 }
