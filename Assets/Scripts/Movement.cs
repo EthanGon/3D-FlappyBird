@@ -33,10 +33,10 @@ public class Movement : MonoBehaviour
         }
         else
         {
+            rb.linearVelocity = Vector3.zero;
             if (Input.GetKey(KeyCode.Space))
             {
-                PipeSpawner.GetPipeSpawner().SetActiveState(true);
-                canMove = true;
+                GameManager.GetGameManager().StartGame();
             }
         }
 

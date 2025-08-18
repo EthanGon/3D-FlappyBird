@@ -8,7 +8,7 @@ public class PipeSpawner : MonoBehaviour
     private float timer = 0;
     private float minSpawnTime = 3.0f;
     private float maxSpawnTime = 5.0f;
-    private bool allowSpawning;
+    private static bool allowSpawning;
     [SerializeField] private float spawnTime = 3.0f;
     [SerializeField] private float pipeSpeed = 50.0f;
     [SerializeField] private float maxY = 12.0f;

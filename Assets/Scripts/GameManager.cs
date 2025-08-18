@@ -6,12 +6,15 @@ public class GameManager : MonoBehaviour
     private static GameManager instance;
     [SerializeField] private TextMeshProUGUI scoreText;
     [SerializeField] private GameObject startGameScreen;
+    [SerializeField] private GameObject scoreTextLabel;
     private int playerScore = 0;
 
     private void Start()
     {
         instance = this;
         scoreText.text = playerScore.ToString();
+        scoreTextLabel.SetActive(false);
+
     }
 
     public static GameManager GetGameManager()
