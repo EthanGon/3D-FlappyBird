@@ -38,7 +38,8 @@ public class GameManager : MonoBehaviour
     {
         startGameScreen.SetActive(false);
         PlayerManager.GetInstance().SetPlayerMoveState(true);
-        PipeSpawner.GetPipeSpawner().SetActiveState(true); 
+        PipeSpawner.GetPipeSpawner().SetActiveState(true);
+        scoreTextLabel.SetActive(true);
     }
 
    
