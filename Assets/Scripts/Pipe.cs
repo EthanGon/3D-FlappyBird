@@ -4,21 +4,24 @@ public class Pipe : MonoBehaviour
 {
     [SerializeField] private float moveSpeed = 2.0f;
     private Rigidbody rb;
-
+    
     private void Start()
     {
         rb = GetComponent<Rigidbody>();
+        
     }
 
     private void Update()
     {
-        rb.linearVelocity = new Vector3 (rb.linearVelocity.x, rb.linearVelocity.y, -moveSpeed);
-
+        
+        rb.linearVelocity = new Vector3(rb.linearVelocity.x, rb.linearVelocity.y, -moveSpeed);
+         
         if (transform.position.z <= -25)
         {
             Destroy(this.gameObject);
             Debug.Log("Pipe Destroyed");
         }
+
     }
 
     private void OnTriggerEnter(Collider other)
