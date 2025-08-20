@@ -14,7 +14,7 @@ public class Camera : MonoBehaviour
     {
         
 
-        if (player.position.x <= camXMax && player.position.x >= camXMin)
+        if (player.position.x <= camXMax && player.position.x >= camXMin && !GameManager.gameOver)
         {
             transform.position = new Vector3(player.transform.position.x, player.transform.position.y + camYOffset, player.transform.position.z + camZOffset);
         }

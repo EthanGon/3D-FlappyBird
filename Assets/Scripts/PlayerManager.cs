@@ -30,7 +30,13 @@ public class PlayerManager : MonoBehaviour
     {
         SetPlayerMoveState(false);
         GameManager.GetGameManager().SetGameOver(true);
+        GetComponent<Collider>().enabled = false;
         Debug.Log("Player Died");
+
+        if (GameManager.GetGameManager().GetScore() > PlayerPrefs.GetInt("MaxScore"))
+        {
+            PlayerPrefs.SetInt("MaxScore", GameManager.GetGameManager().GetScore());
+        }
     }
 
 }

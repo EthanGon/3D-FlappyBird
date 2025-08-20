@@ -5,16 +5,23 @@ public class GameManager : MonoBehaviour
 {
     private static GameManager instance;
     [SerializeField] private TextMeshProUGUI scoreText;
-    [SerializeField] private GameObject startGameScreen;
     [SerializeField] private GameObject scoreTextLabel;
+    [SerializeField] private GameObject startGameScreen;
+    [SerializeField] private GameObject endGameScreen;
+    [SerializeField] private GameObject highScoreTextLabel;
+    [SerializeField] private TextMeshProUGUI highScoreText;
+    
     private int playerScore = 0;
     public static bool gameOver = false;
 
     private void Start()
     {
         instance = this;
+        endGameScreen.SetActive(false);
         scoreText.text = playerScore.ToString();
         scoreTextLabel.SetActive(false);
+
+        highScoreText.text = PlayerPrefs.GetInt("MaxScore").ToString();
 
     }
 
@@ -41,6 +48,7 @@ public class GameManager : MonoBehaviour
         PlayerManager.GetInstance().SetPlayerMoveState(true);
         PipeSpawner.GetPipeSpawner().SetActiveState(true);
         scoreTextLabel.SetActive(true);
+        highScoreTextLabel.SetActive(false);
     }
 
     public bool IsGameOver() 
@@ -51,6 +59,13 @@ public class GameManager : MonoBehaviour
     public void SetGameOver(bool state)
     {
         gameOver = state;
+
+        if (state) 
+        { 
+            endGameScreen.SetActive(true);
+        }
+
+        
     }
 
 
