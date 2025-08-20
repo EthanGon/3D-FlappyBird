@@ -12,8 +12,7 @@ public class Pipe : MonoBehaviour
     private void Start()
     {
         rb = GetComponent<Rigidbody>();
-        //moveYDir = Random.value < 0.5f;
-        moveYDir = true;
+        moveYDir = Random.value < 0.5f;
         yPoints = PipeSpawner.GetPipeSpawner().GetMinMaxY();
 
         if (moveYDir)
