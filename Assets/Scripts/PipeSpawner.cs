@@ -11,6 +11,7 @@ public class PipeSpawner : MonoBehaviour
     private static bool allowSpawning;
     [SerializeField] private float spawnTime = 3.0f;
     [SerializeField] private float pipeSpeed = 50.0f;
+    [SerializeField] private float ySpeed = 3.0f;
     [SerializeField] private float maxY = 12.0f ;
     [SerializeField] private float minY = -8.0f;
     
@@ -49,8 +50,9 @@ public class PipeSpawner : MonoBehaviour
 
         GameObject newPipe = Instantiate(pipe, pipeVector, Quaternion.identity);
         newPipe.GetComponent<Pipe>().SetPipeSpeed(pipeSpeed);
-       
-       
+        newPipe.GetComponent<Pipe>().SetYSpeed(ySpeed);
+
+
         Debug.Log(transform.position);
     }
 

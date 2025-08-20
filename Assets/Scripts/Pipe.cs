@@ -30,10 +30,6 @@ public class Pipe : MonoBehaviour
             }
 
         }
-       
-        
-
-
         
     }
 
