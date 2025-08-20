@@ -2,20 +2,66 @@ using UnityEngine;
 
 public class Pipe : MonoBehaviour
 {
-    [SerializeField] private float moveSpeed = 2.0f;
     private Rigidbody rb;
+    private float moveSpeed = 2.0f;
+    private float ySpeed = 5.0f;
+    private bool moveYDir = false;
+    private Vector3[] yPoints;
+    private int currentDirIndex = 0;
     
     private void Start()
     {
         rb = GetComponent<Rigidbody>();
+        //moveYDir = Random.value < 0.5f;
+        moveYDir = true;
+        yPoints = PipeSpawner.GetPipeSpawner().GetMinMaxY();
+
+        if (moveYDir)
+        {
+            ySpeed = Random.value < 0.5f ? -ySpeed : ySpeed;
+
+            if (ySpeed < 0)
+            {
+                currentDirIndex = 0;
+            } 
+            else
+            {
+                currentDirIndex = 1;
+            }
+
+        }
+       
+        
+
+
         
     }
 
     private void Update()
     {
         
-        rb.linearVelocity = new Vector3(rb.linearVelocity.x, rb.linearVelocity.y, -moveSpeed);
-         
+        if (!moveYDir)
+        {
+            rb.linearVelocity = new Vector3(rb.linearVelocity.x, rb.linearVelocity.y, -moveSpeed);
+        } 
+        else
+        {
+            
+            rb.linearVelocity = new Vector3(rb.linearVelocity.x, ySpeed, -moveSpeed);
+
+            if (Mathf.Abs((transform.position.y - yPoints[currentDirIndex].y)) < .1f) 
+            {
+                Debug.Log("flip dir");
+                currentDirIndex++;
+                if (currentDirIndex >= yPoints.Length)
+                {
+                    currentDirIndex = 0;
+                }
+                ySpeed *= -1.0f;
+            }
+
+        }
+
         if (transform.position.z <= -25)
         {
             Destroy(this.gameObject);
@@ -35,5 +81,10 @@ public class Pipe : MonoBehaviour
     public void SetPipeSpeed(float speed)
     {
         this.moveSpeed = speed;
+    }
+
+    public void SetYSpeed(float speed)
+    {
+        this.ySpeed = speed;
     }
 }

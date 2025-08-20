@@ -11,7 +11,7 @@ public class PipeSpawner : MonoBehaviour
     private static bool allowSpawning;
     [SerializeField] private float spawnTime = 3.0f;
     [SerializeField] private float pipeSpeed = 50.0f;
-    [SerializeField] private float maxY = 12.0f;
+    [SerializeField] private float maxY = 12.0f ;
     [SerializeField] private float minY = -8.0f;
     
 
@@ -62,6 +62,15 @@ public class PipeSpawner : MonoBehaviour
     public void SetActiveState(bool state)
     {
         allowSpawning = state;
+    }
+
+    public Vector3[] GetMinMaxY()
+    {
+        Vector3 min = new Vector3(transform.position.x, minY, transform.position.z);
+        Vector3 max = new Vector3(transform.position.x, maxY, transform.position.z);
+        Vector3[] minMaxPoint = { min, max };
+        return minMaxPoint;
+
     }
 
 }
