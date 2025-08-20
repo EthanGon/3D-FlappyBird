@@ -8,6 +8,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private GameObject startGameScreen;
     [SerializeField] private GameObject scoreTextLabel;
     private int playerScore = 0;
+    public static bool gameOver = false;
 
     private void Start()
     {
@@ -41,6 +42,17 @@ public class GameManager : MonoBehaviour
         PipeSpawner.GetPipeSpawner().SetActiveState(true);
         scoreTextLabel.SetActive(true);
     }
+
+    public bool IsGameOver() 
+    { 
+        return gameOver;
+    }
+
+    public void SetGameOver(bool state)
+    {
+        gameOver = state;
+    }
+
 
    
 

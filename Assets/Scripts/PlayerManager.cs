@@ -26,4 +26,11 @@ public class PlayerManager : MonoBehaviour
         playerMovement.SetCanMove(state);
     }
 
+    private void OnCollisionEnter(Collision collision)
+    {
+        SetPlayerMoveState(false);
+        GameManager.GetGameManager().SetGameOver(true);
+        Debug.Log("Player Died");
+    }
+
 }
