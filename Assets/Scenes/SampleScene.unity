@@ -1200,7 +1200,7 @@ MonoBehaviour:
   - {fileID: 7728941398780146439, guid: 4251c27af4d2b8b438821d98cd9fa669, type: 3}
   spawnTime: 3
   pipeSpeed: 16
-  ySpeed: 2.5
+  ySpeed: 2.8
   maxY: 11
   minY: -8
 --- !u!1 &902155877
