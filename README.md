@@ -1,7 +1,7 @@
 # 3D Flappy Bird
 
 ## Overview
-This is a 3D version of Flappy Bird that I built as a learning project. The game includes randomized elements to make each playthrough feel different and unpredictable. It helped me learn the basics of 3D game development.
+This is a 3D version of Flappy Bird that I built as a learning project. The game includes randomized elements to make each playthrough feel different. It helped me learn the basics of 3D game development.
 
 ## Features
 - Randomized properties of pipes to make the game feel different at times.
